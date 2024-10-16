@@ -10,7 +10,6 @@ function initCarousel() {
     leftButton.style.display = basicSlide === 0 ? 'none' : ''
     rightButton.style.display = basicSlide === 3 ? 'none' : ''
   }
-
   toggleButtons()
 
   
