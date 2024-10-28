@@ -15,12 +15,11 @@ export default class Cart {
   addProduct(product) {
     if (product) {
       let cartItem = this.cartItems.find(
-        (cart) => cart.product.id == product.id
-      )
+        (cart) => cart.product.id == product.id)
 
       if (cartItem) {
         cartItem.count++
-      } else {
+      }else{
         cartItem = {
           product: product,
           count: 1,
@@ -108,24 +107,23 @@ export default class Cart {
 
   renderModal() {
     this.modal = new Modal();
-    this.modal.setTitle("Your order");
+    this.modal.setTitle("Your order")
 
-    this.modalBody = document.createElement(`div`);
+    this.modalBody = document.createElement(`div`)
     
     for (let { product, count } of this.cartItems) {
-      this.modalBody.append(this.renderProduct(product, count));
+      this.modalBody.append(this.renderProduct(product, count))
     }
 
-    this.modalBody.append(this.renderOrderForm());
+    this.modalBody.append(this.renderOrderForm())
     this.modalBody.addEventListener("click", (event) => {
       if (event.target.closest(".cart-counter__button")) {
-        const productElem = event.target.closest("[data-product-id]");
+        const productElem = event.target.closest("[data-product-id]")
         const productId = productElem.dataset.productId
 
         this.updateProductCount(
           productId,
-          event.target.closest(".cart-counter__button_plus") ? 1 : -1
-        )
+          event.target.closest(".cart-counter__button_plus") ? 1 : -1)
       }
     })
 
@@ -143,13 +141,13 @@ export default class Cart {
       return
 
     if (this.cartItems.length == 0) {
-      this.modal.close();
+      this.modal.close()
       return
     }
 
-    if (count == 0)
+    if (count == 0){
       this.modalBody.querySelector(`[data-product-id="${product.id}"]`).remove()
-    else {
+    }else{
       this.modalBody.querySelector(`[data-product-id="${product.id}"] .cart-counter__count`).innerHTML = count
       this.modalBody.querySelector(`[data-product-id="${product.id}"] .cart-product__price`).innerHTML = '€' + (count * product.price).toFixed(2)
     }
@@ -164,6 +162,7 @@ export default class Cart {
     let cartForm = document.querySelector('.cart-form')
     let authorization = new FormData(cartForm)
     buttonSubmit.classList.add('is-loading')
+    
     await fetch(`https://httpbin.org/post`, {
       method: 'POST',
       body: authorization,
