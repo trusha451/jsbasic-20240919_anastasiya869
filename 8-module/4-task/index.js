@@ -132,8 +132,6 @@ export default class Cart {
     this.modal.open()
   }
 
-
-  
   onProductUpdate({ product, count }) {
     this.cartIcon.update(this)
 
@@ -162,7 +160,7 @@ export default class Cart {
     let cartForm = document.querySelector('.cart-form')
     let authorization = new FormData(cartForm)
     buttonSubmit.classList.add('is-loading')
-    
+
     await fetch(`https://httpbin.org/post`, {
       method: 'POST',
       body: authorization,
