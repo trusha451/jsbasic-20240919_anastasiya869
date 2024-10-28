@@ -26,7 +26,6 @@ export default class StepSlider {
     this.elem = slider
   }
 
-
   addEventListeners() {
     this.elem.addEventListener('click', (event) => {
       
