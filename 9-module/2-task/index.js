@@ -32,6 +32,7 @@ export default class Main {
       steps: 5,
       value: 3
     })
+    
 
     document.querySelector('[data-slider-holder]').append(this.stepSlider.elem)
 
