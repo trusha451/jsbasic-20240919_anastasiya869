@@ -46,7 +46,6 @@ export default class RibbonMenu {
           ribbonArrowLeft.classList.add('ribbon__arrow_visible') 
         }
 
-
       if (scrollRight < 1) { 
         ribbonArrowRight.classList.remove('ribbon__arrow_visible') 
       }else{ 

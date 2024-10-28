@@ -23,7 +23,6 @@ export default class Modal {
     this.elem = modal
   }
 
-  
   open() {
     document.body.append(this.elem)
     document.body.classList.add(`is-modal-open`)
